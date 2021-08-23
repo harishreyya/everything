@@ -30,8 +30,8 @@
         text-align: center;
     }
    #head{
-      width: 100px;
-      height: 30px;
+      width: 30px;
+      
       margin-left: 20px;
       
    }
@@ -45,17 +45,26 @@
        color: brown;
        padding-left: 5px;
    }
+   .normal{
+       background-color: turquoise;
+       color: black;
+       font-family:cursive;
+   }
   
 </style>
 <body>
     <h1>JWELLERY STORE</h1>
     <div id="head">
-    <button ondblclick="ShowFilter()">filter</button>
+    <button onclick ="ShowFilter()">filter</button>
+    <button class = "normal">brand</button>
+    <button class = "normal">price</button>
+    <button class = "normal">size</button>
 </div>
     <div class = "grid1">
     <div>
         <p>neckless</p>
         <button onclick="Addcart()">add to cart</button>
+        <div img src ="https://via.placeholder.com/350x150"></div>
     </div>
     <div>
         <p>ear ring</p>
@@ -72,6 +81,7 @@
     <div>
         <p>bangles</p>
         <button onclick="Addcart()">add to cart</button>
+    
     </div>
     <div>
         <p>anklet</p>
@@ -83,5 +93,9 @@
 <script>
     function Addcart(){
         alert("item added to cart")
+    }
+    function ShowFilter(){
+        alert("filter by prices")
+
     }
 </script>
