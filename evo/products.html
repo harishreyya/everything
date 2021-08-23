@@ -8,14 +8,15 @@
 </head>
 <style>
     body{
-        background: cyan;
+        background: yellowgreen
+        
     }
     .grid1{
         display: grid;
         grid-template-columns: 300px 300px 300px;
         grid-template-rows: 400px 400px 400px;
         grid-gap: 20px;
-        background: beige;
+        
         margin-left: 70px;
         max-width: 940px;
         height:840px
@@ -28,12 +29,29 @@
     h1{
         text-align: center;
     }
-   
-
+   #head{
+      width: 100px;
+      height: 30px;
+      margin-left: 20px;
+      
+   }
+   button{
+       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+       color: rgb(250, 242, 242);
+       background-color: black;
+   }
+   p{
+       font-family: cursive;
+       color: brown;
+       padding-left: 5px;
+   }
+  
 </style>
 <body>
     <h1>JWELLERY STORE</h1>
-    <div id="head"></div>
+    <div id="head">
+    <button ondblclick="ShowFilter()">filter</button>
+</div>
     <div class = "grid1">
     <div>
         <p>neckless</p>
