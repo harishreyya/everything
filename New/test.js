@@ -1,18 +1,3 @@
-function go(arr){
-  var obj ={};
-  for(j=0;j<arr.length;j++){
-    if(obj[arr[j]] == undefined){
-      obj[arr[j]] = 1;
-    }else{
-      obj[arr[k]]+=1;
-    }
-  }
-  for(key in obj){
-    if(obj[key]==1){
-      return key;
-    }
-  }
-}
 
 function runProgram(input) {
     input = input.trim().split("\n")
@@ -21,13 +6,20 @@ function runProgram(input) {
     for (i=0;i<test;i++){
         var size = +input[line++]
         var arr = input[line++].trim().split(" ").map(Number)
-      var one = go(arr);
-      console.log(one)
+      
         
-      }
+        for(j=0;j<arr.length;j++){
+            for(k=j;k<=arr.length;k++){
+                if(arr[j]!= arr[k]){
+                    console.log(arr[j])
+                }
+            }
+        }
+
+      
+    }
 
 }
-
 
 if (process.env.USERNAME === 'haris') {
   runProgram(`1

@@ -1,0 +1,11 @@
+var a = 80;
+var b = 140;
+var q1 = 6;
+var q2 = 3;
+var tax1 = 5;
+var tax2 = 8;
+var tip = 50;
+var totaltax1 = (a*tax1/100);
+var totaltax2 = (b*tax2/100);
+var total = (((a+totaltax1)*q1)+((b+totaltax2)*q2) + tip);
+console.log(total);
