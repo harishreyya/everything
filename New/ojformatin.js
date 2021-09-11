@@ -29,12 +29,7 @@ function runProgram(input){
     var newInput = input.split(" ");
     var a = Number(newInput[0]);
     var b = Number(newInput[1]);
-    for(i=0;i<a;i++){
-       if(a[i]-b[i]){
-          console.log(a[i]);
-       }
-    }
-
+    
    
 }
 
