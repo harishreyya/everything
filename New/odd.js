@@ -14,7 +14,11 @@ function runProgram(input) {
               sum+= arr[j];
           }
       }
-        console.log(sum) 
+   if(sum%2==0){
+       console.log("It is Even");
+   }else{
+    console.log("It is Odd");
+   }
 
         }
     }
