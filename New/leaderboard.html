@@ -71,7 +71,7 @@
             </div>
        <div class="score">
            <label>SCORE</label>
-           <div></div>
+           <div id="score"></div>
             
        </div>
        <br/>
@@ -92,11 +92,31 @@
    
    
     <div class="enterbtn">
-    <button onclick="enter('Enter')">Enter</button>
+    <button onclick="enter()">Enter</button>
    </div> 
 </div>
 <script>
+     var output = "";
+         function press(num){
+             output = output + num;
+             document.getElementById("score").textContent = output;
+         }
+         function enter(){
+           var min = document.getElementById("min");
+           var max = document.getElementById("max");
+    console.log(min);
+    console.log(max);
+           if(output > max){
+               document.getElementById("max").textContent = output;
+         }else if(output > min){
+            document.getElementById("min").textContent = output;
+         }else{
+            document.getElementById("score").textContent = output;
+         }
 
+         }
+        
+        
 </script>
 </body>
 </html>
