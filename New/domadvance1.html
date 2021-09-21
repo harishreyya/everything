@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1 id="h1">Change the buttons text color random value</h1>
+  <button>Click here to change my color</button>
+  <script>
+
+         var h1s = document.getElementById("h1");
+          var btn = addEventListener("click",change);
+      
+
+         function change() {
+           
+             h1s.style.color = color();
+         }
+       function color() {
+        var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+       }
+        
+  </script>
+</body>
+</html>

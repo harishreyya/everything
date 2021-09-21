@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    #cont{
+        width:660px;
+height: 600px;
+background-color: teal;
+
+
+    }
+    button{
+        margin-top: 400px;
+        margin-right: 30px;
+        height: 150px;
+        background-color: rgb(194, 12, 12);
+        width: 200px;
+        float: right;
+        border-radius: 20px;
+        font-size: 50px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="cont" onmouseover="bg()" onmouseout="b()">
+        <button id="colour" style="background-color: red;">submit</button>
+
+    </div>
+    <script>
+        
+        
+        function bg(){
+            console.log(1)
+            document.getElementById("colour").style.backgroundColor="green";
+        } function b(){
+            document.getElementById("colour").style.backgroundColor="red";
+        }
+    
+    </script>
+
+</body>
+</html>

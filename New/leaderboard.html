@@ -97,15 +97,17 @@
 </div>
 <script>
      var output = "";
+    
          function press(num){
              output = output + num;
-             document.getElementById("score").textContent = output;
+           document.getElementById("score").textContent = output;
+            
          }
+             
          function enter(){
            var min = document.getElementById("min");
            var max = document.getElementById("max");
-    console.log(min);
-    console.log(max);
+       
            if(output > max){
                document.getElementById("max").textContent = output;
          }else if(output > min){
@@ -115,7 +117,7 @@
          }
 
          }
-        
+         
         
 </script>
 </body>
