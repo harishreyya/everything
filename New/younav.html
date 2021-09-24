@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nav</title>
+    <style>
+        *{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+      #float{
+          max-width: 100%;
+        height: 50px;
+          border: 4px solid white;
+          background-color: rosybrown;
+          
+      }
+      #float > a{
+              float: right;
+              margin-right: 20px;
+              font-size: larger;
+              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+              margin-top: 5px;
+              color: white;
+              
+          }
+          img{
+              margin-top: 50px;
+              width: 100%;
+              height: 450px;
+            
+          }
+          #movies{
+              max-width: 80%;
+            margin: 5% 5% 10% 5%;
+     
+      display: grid;
+      grid-template-columns: 30% 30% 30% ;
+     
+     gap : 5%;;
+      justify-content: center;
+   
+          }
+    </style>
+</head>
+<body>
+    <div id ="float">
+        <a href="signu.html"><button>Signup</button></a>
+      <a href="login.html"><button>Login</button></a>
+       <a href="younav.html"> <button>Home</button></a>
+    </div>
+    <div id="mySlideshow"></div>
+    <div id="movies"></div>
+</body>
+</html>
+<script>
+let images = ["https://webneel.net/file/images/11-16/8-xmen-movie-poster-design.jpg","https://i0.wp.com/www.socialnews.xyz/wp-content/uploads/2020/02/17/Nithiin-and-Rashmika-Mandanna-s-Bheeshma-Movie-HD-posters-1-scaled.jpg?quality=90&zoom=1&ssl=1","https://www.wallpapertip.com/wmimgs/21-215170_insidious-horror-movie-poster-hd-wallpaper-horror-movie.png","https://borgdotcom.files.wordpress.com/2011/06/thor-poster-banner.jpg","https://moviegalleri.net/wp-content/uploads/2021/01/Master-Movie-Release-Posters-HD-05e1ab1.jpg"];
+
+
+let containers = document.getElementById("mySlideshow");
+let interval;
+function startSlideshow() {
+
+
+   let counter =0;
+    interval = setInterval(function(){
+
+        containers.innerHTML = null;
+    if(counter === images.length){
+        counter = 0;
+    }
+        let img = document.createElement("img");
+    img.src = images[counter];
+  transition = "margin-right 2s"
+    containers.append(img);
+ counter+= 1;
+  
+    },2000)
+
+  
+}
+
+startSlideshow();
+
+let data = [
+    {
+      name: "BAHUBALI",
+      IMDB: "9.8",
+      img: "https://www.filmibeat.com/ph-big/2017/05/baahubali-2-the-conclusion_149577721640.jpg",
+    },
+    {
+      name: "INSIDIOUS",
+      IMDB: "9.2",
+      img: "https://c8.alamy.com/comp/PMA502/filmdistricts-insidious-chapter-2-poster-PMA502.jpg",
+    },
+    {
+      name: "mimi",
+      IMDB: "9.3",
+      img: "https://m.media-amazon.com/images/M/MV5BZmYzMmYxNDQtODk2Yi00MDg1LWIxY2ItMjRiZDM3OWUzMzZkXkEyXkFqcGdeQXVyNDAzNDk0MTQ@._V1_.jpg",
+    },
+    {
+      name: "BHEESMA",
+      IMDB: "4.5",
+      img: "https://m.media-amazon.com/images/M/MV5BOTdhODUxYzYtNzc1Zi00YTMzLThhYzAtMTk3YzIwMjQwYzMwXkEyXkFqcGdeQXVyNTgxODY5ODI@._V1_.jpg",
+    },
+    {
+      name: "Darling",
+      IMDB: "8.6",
+      img: "http://wirally.com/wp-content/uploads/2019/05/13.-Prabhas-Darling-Movie-Posters1.jpg",
+    },
+    {
+      name: "MASTER",
+      IMDB: "6.6",
+      img: "https://i0.wp.com/www.socialnews.xyz/wp-content/uploads/2020/01/15/Thalapathy-Vijay-s-Master-movie-second-Look-Poster-.jpg?quality=90&zoom=1&ssl=1",
+    },
+    {
+      name: "X-MEN",
+      IMDB: "8.2",
+      img: "https://m.media-amazon.com/images/I/71gOVtzPj7L._AC_SY879_.jpg",
+    },
+    {
+      name: "Ala Vaikuntapuramloo",
+      IMDB: "7.4",
+      img: "https://m.media-amazon.com/images/M/MV5BMWU1YmJjYTYtMWE2Ny00YjlkLThlZWEtYmQ5YjE1NjZjMzgwXkEyXkFqcGdeQXVyODgwMjQ1MzQ@._V1_FMjpg_UX1000_.jpg",
+    },
+    {
+      name: "THOR",
+      IMDB: "8.0",
+      img: "https://m.media-amazon.com/images/M/MV5BOGE4NzU1YTAtNzA3Mi00ZTA2LTg2YmYtMDJmMThiMjlkYjg2XkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_.jpg",
+    },
+  ];
+
+let parent = document.getElementById("movies")
+
+function showMovies() {
+data.forEach(function(movie){
+
+
+let div = document.createElement("div");
+
+  let img = document.createElement("img");
+  img.src = movie.img;
+
+  let movie_name = document.createElement("p");
+  movie_name.textContent = movie.name;
+
+  let movie_rating = document.createElement("p");
+  movie_rating.textContent = movie.IMDB;
+
+  let watch_btn = document.createElement("button");
+  watch_btn.innerText = "watch movie";
+
+  watch_btn.onclick = function() {
+     watchMovie(movie);
+  };
+
+  div.append(img,movie_name, movie_rating ,  watch_btn);
+
+  parent.append(div);
+
+})
+}
+    showMovies()
+
+   
+</script>
+
