@@ -49,7 +49,34 @@ filter:grayscale(10px);
        
       margin-left: 10px;
    
-      
+    }
+    .left_float > details{
+       float: left;
+      padding-left: 20px;
+      font-size: large;
+      padding-top: 18px;
+
+    }
+    .left_float > details:hover{
+       float: left;
+      padding-left: 20px;
+      font-size: large;
+      padding-top: 18px;
+      color: #437111;
+
+    }
+    .drop{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+       color: #437111;
+       font-size: small;
+
+    }
+    .drop:hover{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-decoration: underline;
+        color: #437111;
+        font-size: normal;
+        
     }
     .left_float > p{
        float: left;
@@ -228,11 +255,16 @@ h4{
         <!----------------------------------shop , learn , grow drop down------------------------------------------>
        <div id="shop_dropdown">
         <div class="left_float">
-             
-       <p>SHOP</p>
-       <p>LEARN</p>
-       <p>GROW</p>
         
+<details>
+  <summary>SHOP</summary>
+         <a href="allfruits.html"><div class="drop">All Fruits</div></a>
+         <div class="drop">Fresh Cuts</div>
+         <div class="drop">Fruits Combos</div>
+         <div class="drop">Gifts by Kimaye</div>   
+ </details>
+ <p>LEARN</p>
+ <p>GROW</p>
              
         </div> 
          <div class="logo">
