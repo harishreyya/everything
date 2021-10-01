@@ -50,6 +50,8 @@
       <a href="login.html"><button>Login</button></a>
        <a href="younav.html"> <button>Home</button></a>
     </div>
+    <button onclick="sortLH()">IMDB low to high</button>
+  <button onclick="sortHL()">IMDB high to low</button>
     <div id="mySlideshow"></div>
     <div id="movies"></div>
 </body>
@@ -86,55 +88,56 @@ startSlideshow();
 let data = [
     {
       name: "BAHUBALI",
-      IMDB: "9.8",
+      IMDB: "9.6",
       img: "https://www.filmibeat.com/ph-big/2017/05/baahubali-2-the-conclusion_149577721640.jpg",
     },
     {
       name: "INSIDIOUS",
-      IMDB: "9.2",
+      IMDB: "8.6",
       img: "https://c8.alamy.com/comp/PMA502/filmdistricts-insidious-chapter-2-poster-PMA502.jpg",
     },
     {
       name: "mimi",
-      IMDB: "9.3",
+      IMDB: "7.5",
       img: "https://m.media-amazon.com/images/M/MV5BZmYzMmYxNDQtODk2Yi00MDg1LWIxY2ItMjRiZDM3OWUzMzZkXkEyXkFqcGdeQXVyNDAzNDk0MTQ@._V1_.jpg",
     },
     {
       name: "BHEESMA",
-      IMDB: "4.5",
+      IMDB: "4.9",
       img: "https://m.media-amazon.com/images/M/MV5BOTdhODUxYzYtNzc1Zi00YTMzLThhYzAtMTk3YzIwMjQwYzMwXkEyXkFqcGdeQXVyNTgxODY5ODI@._V1_.jpg",
     },
     {
       name: "Darling",
-      IMDB: "8.6",
+      IMDB: "8",
       img: "http://wirally.com/wp-content/uploads/2019/05/13.-Prabhas-Darling-Movie-Posters1.jpg",
     },
     {
       name: "MASTER",
-      IMDB: "6.6",
+      IMDB: "6.4",
       img: "https://i0.wp.com/www.socialnews.xyz/wp-content/uploads/2020/01/15/Thalapathy-Vijay-s-Master-movie-second-Look-Poster-.jpg?quality=90&zoom=1&ssl=1",
     },
     {
       name: "X-MEN",
-      IMDB: "8.2",
+      IMDB: "8.1",
       img: "https://m.media-amazon.com/images/I/71gOVtzPj7L._AC_SY879_.jpg",
     },
     {
       name: "Ala Vaikuntapuramloo",
-      IMDB: "7.4",
+      IMDB: "7.2",
       img: "https://m.media-amazon.com/images/M/MV5BMWU1YmJjYTYtMWE2Ny00YjlkLThlZWEtYmQ5YjE1NjZjMzgwXkEyXkFqcGdeQXVyODgwMjQ1MzQ@._V1_FMjpg_UX1000_.jpg",
     },
     {
       name: "THOR",
-      IMDB: "8.0",
+      IMDB: "8.8",
       img: "https://m.media-amazon.com/images/M/MV5BOGE4NzU1YTAtNzA3Mi00ZTA2LTg2YmYtMDJmMThiMjlkYjg2XkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_.jpg",
     },
   ];
 
 let parent = document.getElementById("movies")
 
-function showMovies() {
-data.forEach(function(movie){
+function showMovies(d) {
+  parent.innerHTML = null;
+d.forEach(function(movie){
 
 
 let div = document.createElement("div");
@@ -161,7 +164,22 @@ let div = document.createElement("div");
 
 })
 }
-    showMovies()
+    showMovies(data)
+
+    function sortLH() {
+        let arr = data.sort(function(a,b){
+          return a.IMDB - b.IMDB
+        });
+        showMovies(arr);
+        console.log(a.IMDB-b.IMDB)
+    }
+
+    function sortHL() {
+        let arr = data.sort(function(a,b){
+          return b.IMDB - a.IMDB
+        });
+        showMovies(arr);
+    }
 
    
 </script>
