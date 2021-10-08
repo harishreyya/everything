@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Array-3</title>
+</head>
+<body>
+    <h1>custom array-3</h1>
+</body>
+</html>
+<script>
+    let arr = new friendsArray("sanu","antara","visal","karun","vasu")
+   
+    function  friendsArray(){
+       this.length = arguments.length;
+      // console.log(arguments)
+  for(i=0;i<this.length;i++){
+      this[i] = arguments[i];
+      }
+    } 
+
+    friendsArray.prototype.धक्का = function(value){
+        let index = this.length;
+        this[index] = value;
+        this.length++;
+       
+    };
+
+    arr.धक्का("rashmi");
+   
+
+    Array.prototype.reverse.call(arr)
+    console.log(arr);
+    console.log(arr[0]);
+
+   
+</script>

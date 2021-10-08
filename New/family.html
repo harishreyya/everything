@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>family</title>
+</head>
+<body>
+    <h1>Family member names</h1>
+</body>
+</html>
+<script>
+    let family_name = {
+  
+  family: function() {
+    
+    console.log(this);
+  }
+};
+
+let my = Object.create(family_name);
+
+my.name = "harish"; 
+my.sister = "rashmi";
+my.uncle = "janak Rao"
+my.father = "Mohan Rao"; 
+my.mother = "menaka";
+my.grandfather = "sri hari"; 
+my.grandmother = "savitri"
+
+my.family();
+
+</script>
