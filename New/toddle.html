@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+</head>
+<style>
+  
+</style>
+
+<body>
+    
+        <h2>Enter task</h2>
+        <input type=text id="enter">
+
+        <button onclick="submit()">Submit</button>
+        <div></div>
+  
+</body>
+
+</html>
+
+<script>
+    function output(n) { 
+        this.name = n;
+        this.date = Date()
+        this.status = false;
+    }
+
+
+    function submit() {
+
+        var out = document.getElementById("enter").value;
+        var data =  new output(out)
+
+        var div = document.querySelector('div')
+
+        var line1 = document.createElement('p')
+        line1.textContent = data.name
+
+        var line2 = document.createElement('p')
+        line2.textContent = data.date
+
+
+        var line3 = document.createElement('p')
+        line3.textContent = data.status
+
+
+       
+        
+        var btn = document.createElement('button')
+        btn.textContent = 'toogle';
+
+     
+
+        var count = 0;
+
+        function toogle() {
+
+            count++;
+            if (count == 1) {
+                line3.textContent = true
+            } else if (count == 0) {
+                line3.textContent = true
+            } else {
+                line3.textContent = false
+            }
+            if (count == 2) {
+                count = 0
+            }
+        }
+
+        div.append(line1, line2, line3, btn)
+        btn.addEventListener('click', toogle)
+    
+    }
+</script>
