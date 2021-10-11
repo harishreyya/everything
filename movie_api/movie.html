@@ -28,7 +28,10 @@
    <h1> Movies</h1>
     <input type="text" id="movie" placeholder="Enter movie name"/>
     <button onclick="getMovie()">search movies</button>
-    <div id = "data"></div>
+   
+    <div id = "data">
+      
+    </div>
 </body>
 </html>
 <script>
@@ -47,6 +50,8 @@ async function getMovie() {
 
 function showMovie(movie){
     container.innerText = null;
+    let recommoned = document.createElement("p");
+    recommoned.innerText = "";
     let name = document.createElement("p");
     name.innerText = "Title: " + movie.Title;
     let img = document.createElement("img");
@@ -68,12 +73,11 @@ function showMovie(movie){
     let Released = document.createElement("p");
     Released.innerText = "Released: " + movie.Released;
 
-    if(movie.Title=== undefined){
+if(movie.Title=== undefined){
     name.innerText = "error अब तक ये फिल्म नहीं बनी";
     name.style.color = "red";
     name.style.fontWeight = "bolder";
     name.style.fontSize = "50px"
-
     img.src = "https://www.padtinc.com/blog/wp-content/uploads/2020/09/plc-errors.jpg";
     img.style.width = "500px"
     Country.innerText = ""; 
@@ -83,10 +87,16 @@ function showMovie(movie){
     Released.innerText = "";
     imdbRating.innerText = "";
     Runtime.innerText ="";
-    Production.innerText = "";
+    Production.innerText = "";   
 }
 
-    container.append(name,img,Country,Language,Director,Genre,Released,Production,Runtime,imdbRating)
+if( movie.imdbRating >= "8"){
+    
+    recommoned.innerText = "Recommended to Watch" ;
+    recommoned.style.color = "red";
+}
+
+    container.append(recommoned,name,img,Country,Language,imdbRating,Director,Genre,Released,Production,Runtime)
 }
    </script>
 
