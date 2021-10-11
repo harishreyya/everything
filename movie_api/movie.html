@@ -57,10 +57,36 @@ function showMovie(movie){
     Director.innerText = "Director: " + movie.Director;
     let Genre = document.createElement("p");
     Genre.innerText = "Genre: " +movie.Genre;
+    let imdbRating = document.createElement("p");
+    imdbRating.innerText = "imdbRating: " + movie.imdbRating;
     let Language = document.createElement("p");
     Language.innerText = "Language: " + movie.Language;
+    let Production = document.createElement("p");
+    Production.innerText = "Production: " + movie.Production;
+    let Runtime = document.createElement("p");
+    Runtime.innerText = "Runtime: " +movie.Runtime;
+    let Released = document.createElement("p");
+    Released.innerText = "Released: " + movie.Released;
 
-    container.append(name,img,Country,Language,Director,Genre)
+    if(movie.Title=== undefined){
+    name.innerText = "error अब तक ये फिल्म नहीं बनी";
+    name.style.color = "red";
+    name.style.fontWeight = "bolder";
+    name.style.fontSize = "50px"
+
+    img.src = "https://www.padtinc.com/blog/wp-content/uploads/2020/09/plc-errors.jpg";
+    img.style.width = "500px"
+    Country.innerText = ""; 
+    Director.innerText = "";
+    Genre.innerText = "";
+    Language.innerText ="";
+    Released.innerText = "";
+    imdbRating.innerText = "";
+    Runtime.innerText ="";
+    Production.innerText = "";
+}
+
+    container.append(name,img,Country,Language,Director,Genre,Released,Production,Runtime,imdbRating)
 }
    </script>
 
