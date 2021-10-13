@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Guardians of the Galaxy
+    <input type="text" id="city" placeholder="Enter city name"/>
+    <button onclick="getWeather()">get weather</button>
+    <div id = "data"></div>
+</body>
+</html>
+<script>
+      fetch(`http://www.omdbapi.com/?apikey=2e11846f&t=iron+man`)
+         .then(function(res){
+          return res.json();
+         })
+         .then(function(res){
+    //showProducts(res);
+   console.log(res)
+         });
+        
+
+
+        
+</script>
+http://www.omdbapi.com/?t=iron+man
