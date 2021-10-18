@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search</title>
+</head>
+<body>
+    <input type="text"  placeholder="search movies"/>
+    <button onclick="searchNews()">search</button>
+  <div id="news"></div>
+</body>
+</html>
+<script>
+    let query = document.getElementById("news")
+    async function searchNews(){
+   let res = await fetch(`http://newsapi.org/v2/everything?q=apple&from=2021-10-17&to=2021-09-18&sortBy=popularity&apiKey=2347eae915154fcda6e82e5082c1cf4f`)
+    
+    let data = await res.json();
+    console.log(data)
+    }
+    searchNews()
+</script>

@@ -8,13 +8,14 @@
 </head>
 <body>
     
+    
     <div id="products"></div>
 </body>
 </html>
 <!----------------2347eae915154fcda6e82e5082c1cf4f--------------->
 <!-----https://newsapi.org/v2/everything?q=apple&sortBy=popularity&apiKey=2347eae915154fcda6e82e5082c1cf4f------------------------------------------>
 <script>
-    fetch(`https://newsapi.org/v2/everything?q=tesla&from=2021-09-18&sortBy=publishedAt&apiKey=2347eae915154fcda6e82e5082c1cf4f`)
+    fetch(`http://newsapi.org/v2/everything?q=tesla&from=2021-09-18&sortBy=publishedAt&apiKey=2347eae915154fcda6e82e5082c1cf4f`)
     .then(function(res){
         return res.json();
     })
@@ -27,7 +28,7 @@
     let container = document.getElementById("products")
 
     function showProducts(products){
-        products.forEach(function(products){
+        products.forEach(function(product){
             let div = document.createElement("div");
             let img = document.createElement("img");
             img.src = product.urlToImage;
