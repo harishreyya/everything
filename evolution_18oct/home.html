@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type = "text">
+    <button onclick="searchnews()">search</button>
+    <div id="news"></div>
+</body>
+</html>
+<!----------------2347eae915154fcda6e82e5082c1cf4f--------------->
+<!-----https://newsapi.org/v2/everything?q=apple&sortBy=popularity&apiKey=2347eae915154fcda6e82e5082c1cf4f------------------------------------------>
+<script>
+    
+    let news = document.getElementById("news");
+ async function searchnews(){
+   
+
+ 
+    let res = await fetch(`https://newsapi.org/v2/everything?q=tesla&from=2021-09-18&sortBy=publishedAt&apiKey=2347eae915154fcda6e82e5082c1cf4f`)
+
+    let data = await res.json();
+    console.log(data);
+
+    
+ }
+</script>
