@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>top headlines</h1>
     
     <div id="products"></div>
 </body>
@@ -15,7 +15,7 @@
 <!----------------2347eae915154fcda6e82e5082c1cf4f--------------->
 <!-----https://newsapi.org/v2/everything?q=apple&sortBy=popularity&apiKey=2347eae915154fcda6e82e5082c1cf4f------------------------------------------>
 <script>
-    fetch(`http://newsapi.org/v2/everything?q=tesla&from=2021-09-18&sortBy=publishedAt&apiKey=2347eae915154fcda6e82e5082c1cf4f`)
+    fetch("http://newsapi.org/v2/everything?q=tesla&from=2021-09-18&sortBy=publishedAt&apiKey=2347eae915154fcda6e82e5082c1cf4f")
     .then(function(res){
         return res.json();
     })

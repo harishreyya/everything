@@ -7,18 +7,31 @@
     <title>search</title>
 </head>
 <body>
-    <input type="text"  placeholder="search movies"/>
+    <h1>search for news</h1>
+    <input type="text" id="news" placeholder="search movies"/>
     <button onclick="searchNews()">search</button>
-  <div id="news"></div>
+  <div id="data"></div>
 </body>
 </html>
 <script>
-    let query = document.getElementById("news")
+   let container = document.getElementById("data")
     async function searchNews(){
-   let res = await fetch(`http://newsapi.org/v2/everything?q=apple&from=2021-10-17&to=2021-09-18&sortBy=popularity&apiKey=2347eae915154fcda6e82e5082c1cf4f`)
+        let query = document.getElementById("news").value;
+
+   let res = await fetch(`http://newsapi.org/v2/everything?qInTitle=${query}&from=2021-10-17&to=2021-09-18&sortBy=popularity&apiKey=2347eae915154fcda6e82e5082c1cf4f`)
     
     let data = await res.json();
+    shownews(data)
     console.log(data)
     }
-    searchNews()
+   
+   function shownews(news){
+       container.innerHTML = null;
+       let name = document.createElement("p");
+       name.innerText = news.author;
+       let img = document.createElement("img");
+       img.src = news.urlToImage;
+
+       container.append(name,img)
+   }
 </script>
