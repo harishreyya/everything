@@ -1,27 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>search</title>
-    <script src="search.js"></script>
-</head>
-<style>
-    img{
-        width: 100px;
-        height: 100px;
-    }
-</style>
-<body>
-    <h1>Search for news</h1>
-    <input type="text" id="news" placeholder="search movies"/>
-    <button onclick="searchNews()">search</button>
-  <div id="data"></div>
-</body>
-</html>
-<script>
-   let container = document.getElementById("data")
+let container = document.getElementById("data")
     async function searchNews(){
         let query = document.getElementById("news").value;
 
@@ -61,4 +38,3 @@
 
        container.append(name,img,title,name1,img1,title1,name2,img2,title2,name3,img3,title3)
    }
-</script>
