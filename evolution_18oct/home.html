@@ -17,15 +17,20 @@
 <script>
     
     let news = document.getElementById("news");
- async function searchnews(){
-   
+
 
  
-    let res = await fetch(`https://newsapi.org/v2/everything?q=tesla&from=2021-09-18&sortBy=publishedAt&apiKey=2347eae915154fcda6e82e5082c1cf4f`)
+     fetch(`https://newsapi.org/v2/everything?q=tesla&from=2021-09-18&sortBy=publishedAt&apiKey=2347eae915154fcda6e82e5082c1cf4f`)
 
-    let data = await res.json();
-    console.log(data);
-
+  .then((res)=>{
+    return res.join();
+  })
+.then((res)=>{
+    console.log(res)
+})
+.catch((err)=>{
+    console.log(err)
+})
     
- }
+ 
 </script>
