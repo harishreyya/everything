@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>search</title>
 </head>
+<style>
+    img{
+        width: 100px;
+        height: 100px;
+    }
+</style>
 <body>
     <h1>search for news</h1>
     <input type="text" id="news" placeholder="search movies"/>
@@ -28,10 +34,30 @@
    function shownews(news){
        container.innerHTML = null;
        let name = document.createElement("p");
-       name.innerText = news.author;
+       name.innerText = news.articles[0].author;
        let img = document.createElement("img");
-       img.src = news.urlToImage;
+       img.src = news.articles[0].urlToImage;
+       let title = document.createElement("p");
+       title.innerText = news.articles[0].title;
+       let name1 = document.createElement("p");
+       name.innerText = news.articles[1].author;
+       let img1 = document.createElement("img");
+       img.src = news.articles[1].urlToImage;
+       let title1 = document.createElement("p");
+       title.innerText = news.articles[1].title;
+       let name2 = document.createElement("p");
+       name.innerText = news.articles[2].author;
+       let img2 = document.createElement("img");
+       img.src = news.articles[2].urlToImage;
+       let title2 = document.createElement("p");
+       title.innerText = news.articles[3].title;
+       let name3 = document.createElement("p");
+       name.innerText = news.articles[3].author;
+       let img3 = document.createElement("img");
+       img.src = news.articles[3].urlToImage;
+       let title3 = document.createElement("p");
+       title.innerText = news.articles[3].title;
 
-       container.append(name,img)
+       container.append(name,img,title,name1,img1,title1,name2,img2,title2,name3,img3,title3)
    }
 </script>
