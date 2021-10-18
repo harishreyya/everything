@@ -7,30 +7,39 @@
     <title>Document</title>
 </head>
 <body>
-    <input type = "text">
-    <button onclick="searchnews()">search</button>
-    <div id="news"></div>
+    
+    <div id="products"></div>
 </body>
 </html>
 <!----------------2347eae915154fcda6e82e5082c1cf4f--------------->
 <!-----https://newsapi.org/v2/everything?q=apple&sortBy=popularity&apiKey=2347eae915154fcda6e82e5082c1cf4f------------------------------------------>
 <script>
-    
-    let news = document.getElementById("news");
+    fetch(`https://newsapi.org/v2/everything?q=tesla&from=2021-09-18&sortBy=publishedAt&apiKey=2347eae915154fcda6e82e5082c1cf4f`)
+    .then(function(res){
+        return res.json();
+    })
+    .then(function(res){
+       showProducts(res)
+       console.log(res)
+    });
 
 
- 
-     fetch(`https://newsapi.org/v2/everything?q=tesla&from=2021-09-18&sortBy=publishedAt&apiKey=2347eae915154fcda6e82e5082c1cf4f`)
+    let container = document.getElementById("products")
 
-  .then((res)=>{
-    return res.join();
-  })
-.then((res)=>{
-    console.log(res)
-})
-.catch((err)=>{
-    console.log(err)
-})
-    
- 
+    function showProducts(products){
+        products.forEach(function(products){
+            let div = document.createElement("div");
+            let img = document.createElement("img");
+            img.src = product.urlToImage;
+            let title = document.createElement("p");
+            title.innerText = product.title;
+          div.append(img,title)
+
+          container.append(div)
+        })
+    }
+    showProducts(products)
+
+
+
 </script>
