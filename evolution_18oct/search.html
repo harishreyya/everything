@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>search</title>
-    <script src="search.js"></script>
+   
 </head>
 <style>
     img{
@@ -25,7 +25,7 @@
     async function searchNews(){
         let query = document.getElementById("news").value;
 
-   let res = await fetch(`http://newsapi.org/v2/everything?qInTitle=${query}&from=2021-10-17&to=2021-09-18&sortBy=popularity&apiKey=2347eae915154fcda6e82e5082c1cf4f`)
+   let res = await fetch(`http://newsapi.org/v2/everything?q=${query}&from=2021-10-17&to=2021-09-18&sortBy=popularity&apiKey=2347eae915154fcda6e82e5082c1cf4f`)
     
     let data = await res.json();
     shownews(data)
