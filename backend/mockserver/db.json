@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": 3,
+      "name": "Bob Taylor",
+      "age": 45,
+      "active": false
+    },
+    {
+      "id": "6",
+      "name": "antara",
+      "age": "25"
+    },
+    {
+      "id": "7",
+      "name": "masai_school",
+      "age": "1000"
+    }
+  ]
+}

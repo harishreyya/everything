@@ -1,0 +1,32 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Hamburger",
+      "price": 7,
+      "active": true
+    },
+    {
+      "id": 3,
+      "name": "sdsd",
+      "price": "1212"
+    },
+    {
+      "id": 4,
+      "name": "vannila",
+      "price": 6,
+      "active": true
+    },
+    {
+      "id": 5,
+      "name": "cadboury",
+      "price": 21,
+      "active": true
+    },
+    {
+      "id": "6",
+      "name": "paneer",
+      "price": "150"
+    }
+  ]
+}
