@@ -4,50 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie App with debouncing</title>
+    <title>Movie app II</title>
     <style>
-body {
+        *{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+       body {
     
     text-align: center;
-}
-        input{
+            }
+       input{
             width: 200px;
         }
         #movies{
             height: 200px;
             width: 206px;
-            border: 1px solid black;
-            overflow: scroll;
+             overflow: scroll;
             border-top: none;
             margin: auto;
-            margin-top: 10px;
+            margin-top: 30px;
         }
-       #movies > img{
+        #movies > img{
             width: 40px;
             height: 40px;
         }
-
+        #display {
+            margin-top: 30px;
+            font-size: 24px;
+            font-weight: bolder;
+             color: grey
+        }
+       
     </style>
 </head>
 <body>
-    <div></div>
 <h1>Movie App</h1>
-<input oninput="debounce(main,2000)" type="text" id="movie" placeholder="Enter movie name"/>
+<input oninput="debounce(main,1000)" type="text" id="movie" placeholder="Enter movie name"/>
 <button onclick=" searchMovies()">submit</button>
 
 <div id = "movies"></div>
+<div id ="display"></div>
 </body>
 </html>
 <script>
 
     var timerId;
 
-    let movies_div = document.getElementById("movies")
+ let movies_div = document.getElementById("movies")
+
+let display = document.getElementById("display")
 
 async function searchMovies(movie_name){
 
 try{
-    let res = await fetch(`http://www.omdbapi.com/?apikey=37caec68&s=${movie_name}`)
+    let res = await fetch(`http://www.omdbapi.com/?apikey=2e11846f&s=${movie_name}`)
 
     let data = await res.json();
    return data;
@@ -71,10 +81,42 @@ movies.forEach(function(movie){
     let img = document.createElement("img");
     img.src = movie.Poster;
 
+
+    p.addEventListener("click",function(){
+        clicked(movie);
+        
+    })
+
     movies_div.append(p,img);
 })
 
 }
+  function clicked(movie) {
+      movies.innerHTML = null;
+      display.innerHTML = null;
+
+      let div = document.createElement("div")
+
+      let name = document.createElement("p");
+    name.innerText = "Title: " + movie.Title;
+    let image = document.createElement("img");
+    image.src = movie.Poster;
+    let Type = document.createElement("p");
+    Type.innerText = "Type: " + movie.Type;
+    let Year = document.createElement("p");
+    Year.innerText = "Year: " + movie.Year;
+    let imdbID = document.createElement("p");
+    imdbID.innerText = "imdbID: " +movie.imdbID;
+    
+
+            div.append(image,name,Type,imdbID,Year)
+
+            display.append(div)
+
+          
+
+  }
+
 
  async function main (){
     let name = document.getElementById("movie").value;
@@ -107,4 +149,5 @@ func()
 }, delay)
 
 }
+
 </script>
