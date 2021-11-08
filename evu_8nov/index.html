@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id= "products"></div>
+</body>
+</html>
+<script>
+    fetch(` https://www.themealdb.com/api.php?ref=apilist.fun`)
+    .then(function(res){
+        return res.json()
+    })
+    .then(function(res){
+        showProducts(res)
+        console.log(res)
+    })
+
+    let container = document.getElementById("products");
+
+    function showProducts(products){
+        products.forEach(function(product){
+            let div = document.createElement("div")
+            let img = document.createElement("img")
+            img.src = product.image;
+            let name = product.name;
+
+            div.append(img,name)
+            container.append(div)
+        });
+    }
+    showProducts(products)
+</script>
