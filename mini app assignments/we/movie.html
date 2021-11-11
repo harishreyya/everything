@@ -4,102 +4,123 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>movie api</title>
-    <style>
-        *{
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
-        }
-        #data{
-            margin: auto auto;
-            text-align: center;
-            width: 500px;
-        }
-   p{
-       color: grey;
-       font-weight: bolder;
-   }
-
-    </style>
+    <title>Document</title>
 </head>
 
+<style>
 
-<body>
-   <h1> Movies</h1>
-    <input type="text" id="movie" placeholder="Enter movie name"/>
-    <button onclick="getMovie()">search movies</button>
-   
-    <div id = "data">
-      
-    </div>
+    *{
+        margin: 0;
+        padding: 0;
+
+    }
+    #nav  {
+        display: flex;
+        margin: 30px;
+        list-style: none;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 60px;
+        border: 1px solid rgb(158, 8, 8);
+        background-color:rgb(37, 37, 37) ;
+        
+    }
+    #nav img {
+        width: 30%;
+        
+    }
+    #nav img:hover {
+        cursor: pointer;
+        
+    }
+    
+
+    #ne {
+        font-size: 28px;
+        font-weight: 600;
+        color: whitesmoke;
+    }
+    #ne:hover {
+        cursor: pointer;
+        color: tomato;
+    }
+
+    #inp {
+        width: 100%;
+        font-size: 25px;
+        color: #9f9999;
+        outline: none;
+        border-radius: 5 px;
+        background: whitesmoke;
+        padding: 4px 10 px;
+        border: none;
+    }
+
+    #parent{
+        width: 100%;
+        margin: 20px auto;
+        /* border: 2px solid black; */
+        background-color: rgb(148, 112, 112);
+        text-align: center;
+
+    }
+    #input{
+        width: 99%;
+        height: 35px;
+        font-size: 18px;
+        /* border: none; */
+    
+        
+    }
+    #movies{
+        height: 300px;
+    }
+</style>
+<body onload="movieData()">
+    <div id="nav">
+        
+        <div><a href="index.html"><img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"/></a>
+            </div>
+        <div id="ne">Home</div>
+        <div id="ne">Tv Shows</div>
+        <div id="ne">Movies</div>
+        <div><input oninput="main()" id="inp" type="text" placeholder="Search">
+            <div id="search"></div>
+
+        </div>
+
 </body>
 </html>
 <script>
-     let container =document.getElementById("data");
-async function getMovie() {
-    let movie = document.getElementById("movie").value;
+    console.log('movie');
 
-    
-    let res = 
-   await fetch(`http://www.omdbapi.com/?apikey=2e11846f&t=${movie}`);
 
-   let data = await res.json();
-   console.log(data);
-   showMovie(data);
+console.log(fetch(`https://api.themoviedb.org/3/movie/popular?api_key=c69ba7ccef2dce029abdb736f29f9ecd&language=en-US&page=1`));
+
+async function movieData() {
+    let res = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=c69ba7ccef2dce029abdb736f29f9ecd&language=en-US&page=1`);
+
+    let data = await res.json();
+    console.log(data.results);
+    appendMovies(data.results)
 }
 
-function showMovie(movie){
-    container.innerText = null;
-    let recommoned = document.createElement("p");
-   recommoned.innerText = "";
-    let name = document.createElement("p");
-    name.innerText = "Title: " + movie.Title;
-    let img = document.createElement("img");
-    img.src = movie.Poster;
-    let Country = document.createElement("p");
-    Country.innerText = "Country: " + movie.Country;
-    let Director = document.createElement("p");
-    Director.innerText = "Director: " + movie.Director;
-    let Genre = document.createElement("p");
-    Genre.innerText = "Genre: " +movie.Genre;
-    let imdbRating = document.createElement("p");
-    imdbRating.innerText = "imdbRating: " + movie.imdbRating;
-    let Language = document.createElement("p");
-    Language.innerText = "Language: " + movie.Language;
-    let Production = document.createElement("p");
-    Production.innerText = "Production: " + movie.Production;
-    let Runtime = document.createElement("p");
-    Runtime.innerText = "Runtime: " +movie.Runtime;
-    let Released = document.createElement("p");
-    Released.innerText = "Released: " + movie.Released;
 
-if(movie.Title=== undefined){
-    name.innerText = "error अब तक ये फिल्म नहीं बनी";
-    name.style.color = "red";
-    name.style.fontWeight = "bolder";
-    name.style.fontSize = "50px"
-    img.src = "https://www.padtinc.com/blog/wp-content/uploads/2020/09/plc-errors.jpg";
-    img.style.width = "500px"
-    Country.innerText = ""; 
-    Director.innerText = "";
-    Genre.innerText = "";
-    Language.innerText ="";
-    Released.innerText = "";
-    imdbRating.innerText = "";
-    Runtime.innerText ="";
-    Production.innerText = "";   
+let parent = document.getElementById('parent')
+function appendMovies(movies) {
+    if (movies === undefined) {
+        return false
+    }
+
+    movies.forEach(function (movie) {
+
+        let div = document.createElement('div')
+        let img = document.createElement('img')
+        img.src = "https://image.tmdb.org/t/p/w500"+ movie.poster_path
+
+        div.append(img) 
+        parent.append(div)
+        console.log(movie.title);
+    });
 }
-
-if( movie.imdbRating >= "8"){
-    
-    recommoned.innerText = "Recommended to Watch" ;
-    recommoned.style.color = "red";
-}
-
-    container.append(recommoned,name,img,Country,Language,imdbRating,Director,Genre,Released,Production,Runtime)
-  
-}
-
-   </script>
-
-   <!------------"------------>
+</script>
