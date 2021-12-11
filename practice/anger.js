@@ -12,7 +12,7 @@ function runProgram(input) {
           arr1.push(res1)
         }
     }
-    console.log(arr1)
+    //console.log(arr1)
     arr1.sort((a,b)=> a-b)
     
    console.log(arr1[arr1.length-1])
